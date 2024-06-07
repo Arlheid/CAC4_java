@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="shortcut icon" href="./img/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="../Public/src/FA/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../Public/css/style.css">
+</head>
+<body>
+    <body class="body body-register">
+        <header class="navbar-expand-lg container_header">
+            <nav class="navbar-brand header_homepage">
+                <a class="homepage" href="/index.html">
+                    <i class="logo fa-solid fa-truck-front fa-bounce"></i> Inicio
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--Header links-->
+                <div class="collapse navbar-collapse justify-content-end header_links" id="navbarNavDropdown">
+                <ul class="navbar-nav nav_header_item">
+                    <li class="nav-item"><a class="nav-link active header_link" href="../Public/Servicios.html"><i class="fa-solid fa-handshake fa-beat-fade"></i> Servicios </a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link header_link" href="../Public/contactenos.html"><i class="fa-solid fa-phone fa-beat-fade"></i> Contacto </a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link header_link" href="../Public/Login.html"><i class="fa-solid fa-user fa-beat-fade"></i> Iniciar Sesion </a>
+                    </li>
+                </ul>
+                </div>
+            
+            </nav>
+        </header>
+        <main id="reg-main" class="reg-main">
+            <section class="seccion-registro">
+                <form action="" method="post" id="formulario">
+                    <h2 class="registro-titulo" >Registro de Usuario</h2>
+                    <div>
+                        <input type="text" placeholder="Usuario a mostrar" required id="usuario" name="usuario">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Nombre" required id="nombre" name="nombre">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Apellido" required id="apellido" name="apellido">
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Email" required id="email" name="email">
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Contraseña" required id="password" name="password">
+                    </div>
+                    <div>
+                        <input type="date" placeholder="Fecha de Nacimiento" required id="fechaNacimiento" name="fechaNacimiento">
+                    </div>
+                    <div>
+                        <select name="pais" id="pais">
+                            <option value="">País</option>
+                            <option value="AR">Argentina</option>
+                            <option value="BO">Bolivia</option>
+                            <option value="BR">Brasil</option>
+                            <option value="CH">Chile</option>
+                            <option value="CO">Colombia</option>
+                            <option value="EC">Ecuador</option>
+                            <option value="PY">Paraguay</option>
+                            <option value="PE">Perú</option>
+                            <option value="UY">Uruguay</option>
+                            <option value="VE">Venezuela</option>
+                        </select>
+                    </div>
+                    <div  >
+                        <input class="terms" type="checkbox" id="EULA">
+                        <label class="EULA-txt" for="EULA">Términos y condiciones</label>
+                    </div>
+                    <div>
+                        <input class="sub-buton" type="submit" value="Registrarse">
+                    </div>
+                   
+                    <div > 
+                        <a  href="#">Necesitas ayuda?</a>
+                    </div>
+                </form>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        document.getElementById("formulario").addEventListener('submit', validarFormulario);
+                    });
+            
+                    function validarFormulario(evento) {
+                        evento.preventDefault();
+                        var usuario = document.getElementById('usuario').value;
+                        if (usuario.length == 0) {
+                            alert('No has escrito nada en el usuario');
+                            return;
+                        }
+                        var clave = document.getElementById('password').value;
+                        if (clave.length < 8) {
+                            alert('La contraseña no es válida');
+                            return;
+                        }
+                        this.submit();
+                    }
+                </script>
+              </section>
+        </main>
+</body>
+</html>

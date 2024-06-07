@@ -128,3 +128,108 @@ font-family: var(--alternative-font);
 .card{
     background-color: var(--primary-solid);
 }
+
+/*CSS Register Inicio*/
+.body-register{
+    background:url(../img/wallpaperflare.com_wallpaper_9.jpg) ;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size:  cover;
+    background-attachment: fixed;
+    position: relative;
+    height: 100vh;
+    .headerRegistrarse{
+        color:#ffffff;
+        height: 8vh;
+        padding:30px;
+        .anclaLogo{
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.2rem;
+             /*animacion hover*/
+            &:hover{
+                animation: tilt-n-move-shaking 0.25s infinite;
+            }
+        }
+    }
+    .reg-main{
+        .seccion-registro{
+            background-color:rgba(73, 83, 175, 0.781);
+            width: 30%;
+            margin:0 auto;
+            border-radius: 5px;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            font-size:1.2rem;
+            .registro-titulo{
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 20px;
+            }
+            /*seleccionar todos los input menos el checkbox*/
+            form{
+                width: 100%;
+                padding:40px;
+                input:not(.check,.boton),select{
+                    width: 100%;
+                    margin-bottom: 10px;
+                    height: 40px;
+                    padding: 0px 20px;
+                    font-size: 1.2rem;
+                    border-radius: 20px;
+                    border: 2px solid rgb(2, 0, 145);
+                    background-color: rgb(12, 20, 22);
+                    outline: none;
+                    color:rgb(255, 255, 255);
+                }
+                .error input:not(.check,.boton),.error select{
+                    border: 1px solid rgb(12, 0, 82);
+                }
+                .error-text{
+                    color: #ff0000;
+                    font-size: 0.8rem;
+                    margin-top:0px;
+                    margin-bottom: 10px;
+                }
+              
+                .terminos{
+                    font-size: 0.8rem;
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    .EULA-txt{
+                        margin-left: 10px;
+                    }
+                }
+                .sub-buton{
+                    width: 87%;
+                    box-sizing: content-box;
+                    background-color:#9f3647;
+                    border: 2px solid #9f3647;
+                    color: #ffffff;
+                    padding: 1rem 1rem;
+                    border-radius: 5px;
+                    font-size: 1rem;
+                    font-weight: 500;
+                   
+                }
+                .ayuda{
+                    margin-top:40px;
+                    font-size: 1rem;
+                    text-decoration: none;
+                    color: #787878;
+                    font-weight:400;
+                   
+                }
+            }
+           
+        }
+   
+    }
+}
+/*CSS Registro Fin*/
