@@ -1,52 +1,34 @@
-const apiUrl = "https://rickandmortyapi.com/api/character"; /* invocando la API */ 
+document.addEventListener('DOMContentLoaded', function() {
+    fetchCharacters();
+});
 
-/* intento ordenar mediante estructura y tarjetas */
-
-function makeCard (character){
-    const { name, status, image } = character
-    const cardsContainer = document.querySelector(".cards-container");
-
-
-    /* reclamo datos de la API de manera puntual */
-    const title = document.createElement ("h5")
-    title.textContent = name;
-    
-    const characterStatus = document.createElement("p");
-    characterStatus.textContent = status; /* Murio / no murio */
-    if(status == "Alive") characterStatus.style.color = "green";
-    else characterStatus.style.color = "gray";
-    
-    const characterImage = document.createElement ("img");
-    characterImage.src = image;
-    characterImage.width = 200;
-
-    const Card = document.createElement("div");
-    Card.appendChild(title);
-    Card.appendChild(characterImage);
-    Card.appendChild(characterStatus);
-    Card.style.backgroundColor = "red"
-
-    cardsContainer.appendChild(Card);
-
-
+function fetchCharacters() {
+    fetch('https://rickandmortyapi.com/api/character')
+       .then(response => response.json())
+       .then(data => displayCharacters(data.results))
+       .catch(error => console.error('Error fetching characters:', error));
 }
 
-/* establezco pedido asincronico */
-async function getCharacters () {
-    try {
-        const response = await fetch(apiUrl);
-        const { results } = await response.json();
+function displayCharacters(characters) {
+    const charactersContainer = document.getElementById('characters');
+    characters.forEach(character => {
+        const card = document.createElement('div');
+        card.classList.add('character-card');
 
-        /* For Each con los resultados del Visor */
-        for(let i = 0; i < results.length; i++ ) {
-        makeCard(results[i]);
-        }
-           
+        const name = document.createElement('h2');
+        name.textContent = character.name;
 
+        const status = document.createElement('p');
+        status.textContent = `Status: ${character.status}`;
 
-        } catch (error) {
-        console.error(error);
-        }
-    }
+        const species = document.createElement('p');
+        species.textContent = `Species: ${character.species}`;
 
-getCharacters();
+        card.appendChild(name);
+        card.appendChild(status);
+        card.appendChild(species);
+        card.style.backgroundColor = "red"
+
+        charactersContainer.appendChild(card);
+    });
+}
